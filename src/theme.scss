@@ -1,0 +1,32 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+
+// Define the default theme (same as the example above).
+@import './app/themes/indigo';
+@import './app/themes/purple';
+@import './app/themes/pink';
+@import './app/themes/light';
+
+// Include the default theme styles.
+
+
+.indigo-theme {
+  @include angular-material-theme($indigo-app-theme);
+}
+
+.purple-theme {
+  @include angular-material-theme($purple-app-theme);
+}
+
+.pink-theme {
+  @include angular-material-theme($pink-app-theme);
+}
+
+.light-theme {
+  @include angular-material-theme($light-app-theme);
+}

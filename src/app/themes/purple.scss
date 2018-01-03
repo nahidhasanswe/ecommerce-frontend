@@ -1,0 +1,4 @@
+$purple-app-primary: mat-palette($mat-green);
+$purple-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$purple-app-warn:    mat-palette($mat-red);
+$purple-app-theme:   mat-light-theme($purple-app-primary, $purple-app-accent, $purple-app-warn);

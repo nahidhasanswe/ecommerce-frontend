@@ -1,0 +1,62 @@
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.product-card {
+  margin-bottom: 10px;
+}
+
+.product-card :hover {
+  cursor: pointer;
+  z-index:1000;
+  box-shadow:rgba(0, 0, 0, 0.3) 0 12px 12px 0;
+  -webkit-box-shadow:rgba(0, 0, 0, 0.3) 0 12px 12px 0;
+  -moz-box-shadow:rgba(0, 0, 0, 0.3) 0 12px 12px 0;
+}
+
+.example-card {
+  margin-bottom: 30px !important;
+}
+
+.example-card:hover{
+  -webkit-box-shadow: 0 19px 22px 5px rgba(68,63,63,0.5) !important;
+  box-shadow: 0 19px 22px 5px rgba(68,63,63,0.5) !important;
+  -moz-box-shadow:0 19px 22px 5px rgba(68,63,63,0.5) !important;
+}
+
+.productTitle {
+  text-overflow:ellipsis;
+}
+
+.productName {
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(4, 3, 5);
+}
+
+.productName:hover {
+  color: rgb(63, 4, 226) !important;
+  cursor: pointer !important;
+  text-decoration: underline !important;
+}
+
+.productImage :hover {
+  cursor: pointer;
+}
+
+.productPrice {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.OldPrice {
+  font-size: 17px;
+  color: rgb(95, 100, 104);
+  text-decoration: line-through;
+}
+
+.price {
+  height: 40px;
+}

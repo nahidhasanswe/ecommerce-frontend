@@ -1,0 +1,25 @@
+<ng2-toasty [position]="'top-right'"></ng2-toasty>
+<app-navbar></app-navbar>
+<br><br><br><br>
+<mat-toolbar color="primary" class="fixed-header">
+    <span fxFlex></span>
+    <div style="margin-right: 10px !important">
+      <button mat-icon-button><i style="font-size: 20px" class="fa fa-shopping-cart"></i></button>
+      <a *ngIf="!auth.checkLogged()" class="userName" (click)="openLoginModal()">Sign In/ Sign Up</a>
+      <a *ngIf="auth.checkLogged()" class="userName my-menu" [matMenuTriggerFor]="menu">{{auth.getLoggedUsername()}}</a>
+
+      <mat-menu #menu="matMenu" [overlapTrigger]="false" class="my-menu">
+        <button mat-menu-item routerLink="/mypage/dashboard">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>subdirectory_arrow_right</mat-icon>
+          <span>Sign Out</span>
+        </button>
+      </mat-menu>
+    </div>
+</mat-toolbar>
+<div class="containerForProduct">
+    <router-outlet></router-outlet>
+</div>

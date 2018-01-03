@@ -1,0 +1,172 @@
+<ng2-toasty [position]="'top-right'"></ng2-toasty>
+<div *ngIf="page == 'signin'">
+  <div>
+    <mat-card class="user-login-top">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <span class="title">Sign In </span>
+      </div>
+    </mat-card>
+    <div class="login-form" fxLayout="column" fxLayoutAlign="center center">
+        <br>
+        <form [formGroup]="loginForm" (ngSubmit)="UserLogin(loginForm.value,loginForm.valid)">
+          <div class="input-groups">
+            <span class="input-groups-addon">
+              <i class="material-icons">email</i>
+            </span>
+            <mat-form-field>
+                <input formControlName="Email" matInput placeholder="Email">
+                <mat-error *ngIf="loginForm.controls['Email'].errors?.required">
+                  <strong>Email</strong> is required
+                </mat-error>
+                <mat-error *ngIf="loginForm.controls['Email'].errors?.pattern">
+                  <strong>Email</strong> is not valid
+                </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="input-groups">
+            <span class="input-groups-addon">
+              <i class="material-icons">lock_outline</i>
+            </span>
+            <mat-form-field>
+                <input formControlName="Password" type="password" matInput placeholder="Password">
+                <mat-error *ngIf="loginForm.controls['Password'].errors?.required">
+                  <strong>Password</strong> is required
+                </mat-error>
+            </mat-form-field>
+          </div>
+          <div style="margin-top: 15px" fxLayout="column" fxLayoutAlign="center center">
+              <button type="submit" mat-raised-button color="warn"><mat-icon>input</mat-icon> Sign In</button>
+          </div>
+        </form>
+        <br>
+        <a class="hyperLink" (click)="pageChange('forgotPassword')">Forgot your password?</a>
+        <div>
+          <h4 class="titleText">Don't have an account yet?</h4>
+        </div>
+        <div>
+            <button (click)="pageChange('signup')" mat-raised-button>
+                Sign Up
+            </button>
+        </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="page == 'signup'">
+    <div>
+      <mat-card class="user-login-top">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <span class="title">Sign Up </span>
+        </div>
+      </mat-card>
+      <form [formGroup]="registrationForm" (ngSubmit)="UserRegistration(registrationForm.value,registrationForm.valid)">
+        <div class="login-form" fxLayout="column" fxLayoutAlign="center center">
+          <br>
+          <div class="input-groups">
+              <span class="input-groups-addon">
+                  <i class="fa fa-user"></i>
+              </span>
+              <mat-form-field>
+                  <input formControlName="Name" matInput placeholder="Name">
+                  <mat-error *ngIf="registrationForm.controls['Name'].errors?.required">
+                    <strong>Name</strong> is required
+                  </mat-error>
+              </mat-form-field>
+          </div>
+          <div class="input-groups">
+              <span class="input-groups-addon">
+                  <i class="fa fa-envelope"></i>
+              </span>
+              <mat-form-field>
+                  <input formControlName="Email" matInput placeholder="Email">
+                  <mat-error *ngIf="registrationForm.controls['Email'].errors?.required">
+                    <strong>Email</strong> is required
+                  </mat-error>
+                  <mat-error *ngIf="registrationForm.controls['Email'].errors?.pattern">
+                    <strong>Email</strong> is not valid
+                  </mat-error>
+              </mat-form-field>
+          </div>
+          <div class="input-groups">
+              <span class="input-groups-addon">
+                  <i class="fa fa-unlock-alt"></i>
+              </span>
+              <mat-form-field>
+                  <input formControlName="Password" type="password" matInput placeholder="Password">
+                  <mat-error *ngIf="registrationForm.controls['Password'].errors?.required">
+                    <strong>Password</strong> is required
+                  </mat-error>
+              </mat-form-field>
+          </div>
+          <div class="input-groups">
+              <span class="input-groups-addon">
+                  <i class="fa fa-unlock-alt"></i>
+              </span>
+              <mat-form-field>
+                  <input formControlName="ConfirmPassword" type="password" matInput placeholder="Confirm Password">
+                  <mat-error *ngIf="registrationForm.controls['ConfirmPassword'].errors?.required">
+                    <strong>Confirm Password</strong> is required
+                  </mat-error>
+                  <mat-error *ngIf="registrationForm.controls['ConfirmPassword'].errors?.equalTo">
+                    <strong>Confirm Password</strong> is not match
+                  </mat-error>
+              </mat-form-field>
+          </div>
+          <div style="margin-top: 15px">
+              <button type="submit" mat-raised-button color="warn"><mat-icon>input</mat-icon> Sign Up</button>
+          </div>
+          <br>
+          <div>
+            <h4 class="titleText">Already have an account?</h4>
+          </div>
+          <div>
+              <button type="button" (click)="pageChange('signin')" mat-raised-button>
+                  Sign In
+              </button>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>
+<div *ngIf="page == 'forgotPassword'">
+    <div>
+      <mat-card class="user-login-top">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <span class="title">Forgot Password </span>
+        </div>
+      </mat-card>
+      <form [formGroup]="forgotPasswordForm" (ngSubmit)="ForgotPassword(forgotPasswordForm.value,forgotPasswordForm.valid)">
+        <div class="login-form" fxLayout="column" fxLayoutAlign="center center">
+          <br>
+          <div class="input-groups">
+              <span class="input-groups-addon">
+                  <i class="fa fa-envelope"></i>
+              </span>
+              <mat-form-field>
+                <input formControlName="Email" matInput placeholder="Email">
+                <mat-error *ngIf="forgotPasswordForm.controls['Email'].errors?.required">
+                  <strong>Email</strong> is required
+                </mat-error>
+                <mat-error *ngIf="forgotPasswordForm.controls['Email'].errors?.pattern">
+                  <strong>Email</strong> is not valid
+                </mat-error>
+              </mat-form-field>
+          </div>
+          <div style="margin-top: 15px">
+              <button type="submit" mat-raised-button color="warn"><i class="fa fa-key"></i> Forgot Password</button>
+          </div>
+          <div>
+              <button type="button" mat-button (click)="pageChange('signin')" color="primary">Back</button>
+          </div>
+          <br>
+          <div>
+            <h4 class="titleText">Don't have an account yet?</h4>
+          </div>
+          <div>
+              <button type="button" (click)="pageChange('signup')" mat-raised-button>
+                  Sign Up
+              </button>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+$pink-app-primary: mat-palette($mat-pink);
+$pink-app-accent:  mat-palette($mat-cyan, A200, A100, A400);
+$pink-app-warn:    mat-palette($mat-orange);
+$pink-app-theme:   mat-light-theme($pink-app-primary, $pink-app-accent, $pink-app-warn);

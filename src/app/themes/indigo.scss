@@ -1,0 +1,5 @@
+$indigo-app-primary: mat-palette($mat-indigo);
+$indigo-app-accent:  mat-palette($mat-amber, A200, A100, A400);
+$indigo-app-warn:  mat-palette($mat-deep-orange);
+
+$indigo-app-theme:   mat-light-theme($indigo-app-primary, $indigo-app-accent, $indigo-app-warn);

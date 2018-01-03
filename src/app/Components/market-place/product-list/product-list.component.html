@@ -1,0 +1,27 @@
+<ng2-toasty [position]="'top-right'"></ng2-toasty>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-2" *ngFor="let product of productList">
+      <mat-card class="example-card">
+          <a routerLink="/ResetPassword" class="productImage">
+              <img mat-card-image style="height: 200px" src="{{product.Image}}" alt="Photo of a Shiba Inu">
+          </a>
+          <mat-card-content class="productTitle">
+            <div style="height: 50px !important">
+              <a class="productName">
+                  {{product.ProductName}}
+              </a>
+            </div>
+            <div class="price" fxLayout="column" fxLayoutAlign="center center">
+              <div class="productPrice">${{product.Price}}</div>
+              <div *ngIf="product.TotalPrice !=null" class="OldPrice">${{product.TotalPrice}}</div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button style="width: 100%" mat-raised-button color="accent"><i class="fa fa-cart-plus"></i> Add to cart</button>
+          </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
